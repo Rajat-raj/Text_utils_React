@@ -31,17 +31,17 @@ export default function TextForm(props) {
   return (
     <>
     <div className="container">
-      <h1>{props.heading}</h1>
+      <h1 style={{color:props.mode==='light'?'black':'white'}}>{props.heading}</h1>
       <div className="mb-3">
-        <textarea className="form-control" value={text} placeholder="Enter text here" onChange={handleOnChange} id="Text-form" rows="8"></textarea>
-        <button type="button" className="btn btn-primary my-2" onClick={handleUCClick}>Convert to Upper case</button>
+        <textarea className="form-control" value={text} onChange={handleOnChange} id="Text-form" rows="8" style={{backgroundColor:props.mode==='light'?'white':'grey', color:props.mode==='light'?'black':'white'}}></textarea>
+        <button type="button" className="btn btn-info my-2" onClick={handleUCClick}>Convert to Upper case</button>
         <button type="button" className="btn btn-info mx-2" onClick={handleLCclick}>Convert to Lower case</button>
         <button type="button" className="btn btn-danger mx-2" onClick={handleCLclick}>Clear</button>
         <button type="button" className="btn btn-info mx-2" onClick={handleCBclick} id="myBox">Copy to clipbord</button>
         <button type="button" className="btn btn-info mx-2" onClick={handleRESclick}>Remove extra spaces</button>
       </div>
     </div>
-    <div>
+    <div style={{color:props.mode==='light'?'black':'white'}}>
         <h3>You text summary</h3>
         <p>{text.split(" ").length} word and {text.length} characters</p>
         <p>{0.008 * text.split(" ").length} Minutes to read</p>
