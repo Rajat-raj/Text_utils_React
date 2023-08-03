@@ -5,26 +5,42 @@ export default function TextForm(props) {
         console.log("Button Upper now clicked - " + text);
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert('Text now changed to UpperCase','success');
+        emptyText();
     }
     const handleLCclick=()=>{
         let textLC = text.toLowerCase();
         setText(textLC);
+        props.showAlert('Text now changed to LowerCase','success');
+        emptyText();
     }
     const handleCLclick=()=>{
         let textCL = ("");
         setText(textCL);
+        props.showAlert('Text now clear','danger');
+        emptyText();
     }
     const handleCBclick=()=>{
         let textCB = document.getElementById("Text-form");
         navigator.clipboard.writeText(textCB.value);
+        props.showAlert('Text now copied','warning');
+        emptyText();
     }
     const handleRESclick=()=>{
         let result = text.replace(/\s+/g, ' ').trim();
         setText(result);
+        props.showAlert('Extra space now removed on text','primary');
+        emptyText();
     }
     const handleOnChange =(event)=>{
         console.log("onchange")
         setText(event.target.value)
+    }
+    //EMPTY TEXT
+    const emptyText = ()=>{
+      if(text===""){
+        props.showAlert('Kindly text somethink here','warning');
+      }
     }
 
   const [text, setText] = useState("");
@@ -43,8 +59,8 @@ export default function TextForm(props) {
     </div>
     <div style={{color:props.mode==='light'?'black':'white'}}>
         <h3>You text summary</h3>
-        <p>{text.split(" ").length} word and {text.length} characters</p>
-        <p>{0.008 * text.split(" ").length} Minutes to read</p>
+        <p>{text.split(" ").filter(function(n) { return n !== '' }).length} word and {text.length} characters</p>
+        <p>{0.008 * text.split(" ").filter(function(n) { return n !== '' }).length} Minutes to read</p>
         <h4>Preview</h4>
         <p>{text}</p>
     </div>
