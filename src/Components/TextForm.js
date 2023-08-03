@@ -10,6 +10,20 @@ export default function TextForm(props) {
         let textLC = text.toLowerCase();
         setText(textLC);
     }
+    const handleCLclick=()=>{
+        let textCL = ("");
+        setText(textCL);
+    }
+    const handleCBclick=()=>{
+        try{
+            let textCB= navigator.clipboard.writeText(text);
+            console.log(textCB);
+            setText(textCB);
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
     const handleOnChange =(event)=>{
         console.log("onchange")
         setText(event.target.value)
@@ -24,6 +38,9 @@ export default function TextForm(props) {
         <textarea className="form-control" value={text} onChange={handleOnChange} id="Text-form" rows="8"></textarea>
         <button type="button" className="btn btn-primary my-2" onClick={handleUCClick}>Convert to Upper case</button>
         <button type="button" className="btn btn-info mx-2" onClick={handleLCclick}>Convert to Lower case</button>
+        <button type="button" className="btn btn-danger mx-2" onClick={handleCLclick}>Clear</button>
+        <button type="button" className="btn btn-info mx-2" onClick={handleCBclick}>Copy to clipbord</button>
+        <button type="button" className="btn btn-info mx-2">Remove extra spaces</button>
       </div>
     </div>
     <div>
