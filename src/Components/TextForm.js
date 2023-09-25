@@ -50,11 +50,11 @@ export default function TextForm(props) {
       <h1 style={{color:props.mode==='light'?'black':'white'}}>{props.heading}</h1>
       <div className="mb-3">
         <textarea className="form-control" value={text} onChange={handleOnChange} id="Text-form" rows="8" style={{backgroundColor:props.mode==='light'?'white':'grey', color:props.mode==='light'?'black':'white'}}></textarea>
-        <button type="button" className="btn btn-info my-2" onClick={handleUCClick}>Convert to Upper case</button>
-        <button type="button" className="btn btn-info mx-2" onClick={handleLCclick}>Convert to Lower case</button>
-        <button type="button" className="btn btn-danger mx-2" onClick={handleCLclick}>Clear</button>
-        <button type="button" className="btn btn-info mx-2" onClick={handleCBclick} id="myBox">Copy to clipbord</button>
-        <button type="button" className="btn btn-info mx-2" onClick={handleRESclick}>Remove extra spaces</button>
+        <button type="button" className="btn btn-info my-2 mx-2" onClick={handleUCClick}>Convert to Upper case</button>
+        <button type="button" className="btn btn-info my-2 mx-2" onClick={handleLCclick}>Convert to Lower case</button>
+        <button type="button" className="btn btn-danger my-2 mx-2" onClick={handleCLclick}>Clear</button>
+        <button type="button" className="btn btn-info my-2 mx-2" onClick={handleCBclick} id="myBox">Copy to clipbord</button>
+        <button type="button" className="btn btn-info my-2 mx-2" onClick={handleRESclick}>Remove extra spaces</button>
       </div>
     </div>
     <div style={{color:props.mode==='light'?'black':'white'}}>
